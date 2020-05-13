@@ -27,6 +27,7 @@ if (not args.u and not args.l):
 	parser.print_help()
 	exit(0)
 
+
 if args.o and ".csv" not in args.o:
 	print ("Output file mora biti u csv formatu")
 	exit(0)
@@ -44,7 +45,6 @@ df = pandas.read_csv(file,
 	header = 0,
 	names = ["Time", "SourceUser", "VPNGroup"])
 
-
 # Filtriranje csv fajla
 
 if users:
@@ -53,7 +53,7 @@ if users:
 if last_login:
 	df = df.drop_duplicates(subset=['SourceUser'], keep = 'last')
 
-
+  
 # ispis u fajl ili na konzolu
 
 if args.o:
@@ -67,3 +67,4 @@ else:
 
 if os.path.isfile(tmp):
 	os.remove(tmp)
+
